@@ -1,0 +1,91 @@
+* {
+    margin: 0%;
+    overflow: hidden;
+}
+
+.landingpage {
+    height: 100vh;
+
+    display: grid;
+
+    grid-template-areas: 
+            "a a c c" 
+            "b b c c" 
+            "b b c c";
+
+    
+ grid-template-rows: 50px;
+ grid-template-columns: 50%;
+
+}
+
+.header {
+grid-area: a;
+background-color: #060724;
+}
+
+.headerDoneNest {
+    color: #eb7f67;
+    float: left;
+    padding-left: 5%;
+    cursor: pointer;
+}
+
+.header button {
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 2%;
+        margin-bottom: 2%;
+        float: right;
+        -webkit-border-radius: 7;
+        -moz-border-radius: 7;
+        border-radius: 7px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 16px;
+        background: #eb7f67;
+        padding: 5px 10px 5px 10px;
+        text-decoration: none;
+      
+}
+
+.leftSideLanding { 
+    grid-area: b;
+    background-color: #060724;
+    color: #edeced;
+}
+
+.leftSideHeadingText {
+    margin-top: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.rightSideLanding {
+    grid-area: c;
+}
+
+.callToActionLeft {
+    margin-top: 10%;
+    color: #eb7f67;
+}
+
+.rightSideLanding img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.joinUsButton button {
+    cursor: pointer;
+    margin-top: 5%;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 25px;
+    background: #eb7f67;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
