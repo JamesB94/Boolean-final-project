@@ -1,27 +1,34 @@
 import './App.css';
 import LandingPage from './components/LandingPage/landingPage';
-import DashBoard from './components/DashBoard/DashBoard.jsx';
+import Goals, { goalLoader } from './components/Goals/Goals.jsx';
 import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 
 //Layouts
 import RootLayout from './components/layouts/RootLayout';
 import HelpLayout from './components/layouts/HelpLayout';
+import GoalsLayout from './components/layouts/GoalsLayout';
 
 //pages
 import Faq from './components/Help/Faq';
 import Contact from './components/Help/Contact';
+import GoalTasks, { goalTasksLoader } from './components/Goals/GoalTasks';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements (
     <Route path='/' element = {<RootLayout />}>
           <Route index element= {<LandingPage />} />
-          <Route path='DashBoard' element ={<DashBoard />} />
+          
           {/* Nested Route */}
           <Route path='Help' element = {<HelpLayout />}>
             <Route path='faq' element={<Faq />}/>
             <Route path='contact' element={<Contact />}/>
+          </Route>
+
+          <Route path='Goals' element ={<GoalsLayout />} >
+            <Route index element ={<Goals />} loader={goalLoader}/>
+            <Route path=':id' element={<GoalTasks />} loader={goalTasksLoader} />
           </Route>
 
     </Route>
@@ -73,7 +80,7 @@ export default App;
 //       <nav>
 //       <span>
 //         <NavLink to="/">HOME</NavLink>
-//         <NavLink to="/DashBoard"> DashBoard</NavLink>
+//         <NavLink to="/Goals"> Goals</NavLink>
 //         </span>
 //       </nav>
       
@@ -82,7 +89,7 @@ export default App;
 //     <main>
 //       <Routes>
 //           <Route index element= {<LandingPage />} />
-//           <Route path='/DashBoard' element ={<DashBoard />} />
+//           <Route path='/Goals' element ={<Goals />} />
 //       </Routes>
     
 
