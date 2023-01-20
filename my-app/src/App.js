@@ -22,7 +22,6 @@ const router = createBrowserRouter(
           <Route path='Help' element = {<HelpLayout />}>
             <Route path='faq' element={<Faq />}/>
             <Route path='contact' element={<Contact />}/>
-
           </Route>
 
     </Route>
