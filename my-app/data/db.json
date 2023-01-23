@@ -29,7 +29,7 @@
         "nestedTask": [
           {
             "nestedId":1,
-            "nestedTask": " G1 task 2: nestedTask 1",
+            "nestedTask": " G1 - task 2: nestedTask 1",
             "nestedDone":false
           }
         ]
@@ -60,7 +60,7 @@
     "done": false,
     "nestedTask": [
       {
-        "nestedId":1,
+        "nestedId":2,
             "nestedTask": "g2: task2: nestedTask:2",
             "nestedDone":false
       }

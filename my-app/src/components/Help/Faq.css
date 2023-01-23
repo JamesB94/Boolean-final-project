@@ -1,0 +1,22 @@
+p {
+    color: brown;
+}
+
+.collapsable-content {
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .collapsable-content.open {
+    background-color: palegreen;
+    max-height: 500px;
+  }
+
+  #root > div > main > div > div > button {
+    cursor: pointer;
+    background-color: purple;
+    display: flex; 
+    justify-content: center;
+    width: 150px
+  }
