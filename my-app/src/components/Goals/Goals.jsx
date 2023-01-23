@@ -11,7 +11,7 @@ const data = useLoaderData()
 
     return ( 
         <div>
-            
+            <h1>this is a test for Goals page</h1>
             {data.map(goal => (
               <Link to={goal.id.toString()} key={goal.id}>
                 <h2>{goal.goalName}</h2>

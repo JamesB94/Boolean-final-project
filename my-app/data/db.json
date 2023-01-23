@@ -1,7 +1,74 @@
 {
 "Goals":[
-  {"id": 1, "goalName": "Run a Marthon", "done":true,"task":"JavaScript II"},
-  {"id": 2, "goalName": "Finish Boolean Bootcamp", "done":true, "task":"CSS"}
+  {"id": 1,
+   "goalName": "Run a Marthon",
+    "done":false,
+    "task":
+    [
+      {
+        "id":1,
+        "task": "task 1",
+        "done": false,
+        "nestedTask":[
+          {
+            "nestedId":1,
+            "nestedTask": " G1 - task 1: nestedTask:1",
+            "nestedDone":false
+        }, 
+        {
+          "nestedId":2,
+          "nestedTask": " G1 - task 1: nestedTask:2",
+          "nestedDone":false
+      }
+        ]
+      },
+      {
+        "id":2,
+        "task": "task 2",
+        "done": false,
+        "nestedTask": [
+          {
+            "nestedId":1,
+            "nestedTask": " G1 task 2: nestedTask 1",
+            "nestedDone":false
+          }
+        ]
+      }
+    
+    ]
+  
+  },
+
+
+  {"id": 2, "goalName": "Finish Boolean Bootcamp", "done":true, 
+  "task":[
+  {
+    "id":1,
+    "task": "goal 2: task 1",
+    "done": false,
+    "nestedTask": [
+      {
+        "nestedId":1,
+            "nestedTask": " g2: task1: nestedTask:1",
+            "nestedDone":false
+      }
+    ]
+  },
+  {
+    "id":2,
+    "task": "goal 2: task 2",
+    "done": false,
+    "nestedTask": [
+      {
+        "nestedId":1,
+            "nestedTask": "g2: task2: nestedTask:2",
+            "nestedDone":false
+      }
+    ]
+  }
+
+]
+    }
 
   ]
 }
