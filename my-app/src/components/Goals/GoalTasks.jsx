@@ -1,43 +1,56 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState, useRef  } from 'react';
 import './GoalTask.css'
 
 export default function GoalTasks() {
 
     const [tasksOpen, settasksOpen] = useState(false); 
 
+    const inputRef = useRef('null');
+
     const { id } = useParams()
 
     const data = useLoaderData()
 
-    // const nestedData = [].concat(...data.task.map(value => value.nestedTask));
+    const addMileStone = (event) => {
+        event.preventDefault();
+        const userInput = inputRef.current.value;
+        const userTask = userInput
+        const tasks = data.task
 
-    // const nestedData = data.task.map((value) => {
-    //     console.log('this is the first task', value.task)
-    //     return value.nestedTask.map((task) => {
-    //         console.log('this is the nested data', task.nestedTask) 
-    //     })
-        
-    // })
-    
-    //  console.log('this is a nested test', nestedData);
+        //console.log('here is data ' , tasks)
+        const newObj = {"id":data.task.length+1,"task": userTask,"done": false, "nestedTask":[] }
+
+        tasks.push(newObj)
+
+        console.log('data has been pushed', data)
+        //console.log('Here is the input ',newObj);
+    }
+
+    //addMileStone()
+
 
 
   
-//     const nestedData = data.task.map((value) => {
-//         return value.nestedTask.map((task) => task)
-// });
-
-   
-
-//     console.log('this is a nested test', nestedData )
 
 
     return ( 
         <div className="tasks">
             <h1> {data.goalName}</h1> 
+
+            <div className="addAMilestone">
+                <form onSubmit={addMileStone}>
+                    <input 
+                        type="text" ref={inputRef}
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+
+
             <button onClick={() => settasksOpen(!tasksOpen)}>See all to Do's</button>
-            <button>Add a Milestone</button>
+            
             {/* Goal.css to change Goal color */}
         
         <ul>
@@ -123,3 +136,29 @@ export const goalTasksLoader = async ({ params }) => {
       // nestedData.map((nestedValue) => (
                     //     <li key={nestedValue.nestedId}>{nestedData}</li>
                     // ))
+
+
+
+
+
+                      // const nestedData = [].concat(...data.task.map(value => value.nestedTask));
+
+    // const nestedData = data.task.map((value) => {
+    //     console.log('this is the first task', value.task)
+    //     return value.nestedTask.map((task) => {
+    //         console.log('this is the nested data', task.nestedTask) 
+    //     })
+        
+    // })
+    
+    //  console.log('this is a nested test', nestedData);
+
+
+  
+//     const nestedData = data.task.map((value) => {
+//         return value.nestedTask.map((task) => task)
+// });
+
+   
+
+//     console.log('this is a nested test', nestedData )
