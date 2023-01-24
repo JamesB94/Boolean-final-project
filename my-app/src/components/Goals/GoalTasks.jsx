@@ -7,10 +7,12 @@ export default function GoalTasks() {
     const [tasksOpen, settasksOpen] = useState(false); 
 
     const inputRef = useRef('null');
+    const nestetRef = useRef('null')
 
     const { id } = useParams()
 
     const data = useLoaderData()
+
 
     const addMileStone = (event) => {
         event.preventDefault();
@@ -27,6 +29,28 @@ export default function GoalTasks() {
         //console.log('Here is the input ',newObj);
     }
 
+    const addTask = (event) => {
+        event.preventDefault();
+        const userInput = nestetRef.current.value;
+        const info = data.task
+
+       // console.log(info)
+        
+        info.forEach(element => {
+            let nestInfo = element.nestedTask
+            nestInfo.map((item) => (
+                console.log('here is the nested task' , item.nestedTask)
+            ))
+                
+            //console.log('here is the nested task' , nestInfo)
+        });
+
+
+        
+
+         //console.log('here is the nested task' , info )
+    }
+
     //addMileStone()
 
 
@@ -41,7 +65,7 @@ export default function GoalTasks() {
             <div className="addAMilestone">
                 <form onSubmit={addMileStone}>
                     <input 
-                        type="text" ref={inputRef}
+                        type="text" ref={inputRef} name='addAMilestone'
                     />
                     <button type="submit">Submit</button>
                 </form>
@@ -71,6 +95,11 @@ export default function GoalTasks() {
                             </ul>
                         ))
                     }
+                    <form onSubmit={addTask}>
+                    <input type="text" ref={nestetRef}/>
+                    <button type="submit">+</button>
+                    </form>
+                    
                 </div>
                 
                 
@@ -79,21 +108,7 @@ export default function GoalTasks() {
     }
 </ul>
 
-        
-
-
-
-
-        {/* <ul>
-            {
-                data.task.map((value) => (
-                    <li key={value.id}>{value.task}</li>
-                ))
-                
-            }
-           
-        </ul>      */}
-
+    
         </div>
 
      );
@@ -162,3 +177,14 @@ export const goalTasksLoader = async ({ params }) => {
    
 
 //     console.log('this is a nested test', nestedData )
+
+
+        // {/* <ul>
+        //     {
+        //         data.task.map((value) => (
+        //             <li key={value.id}>{value.task}</li>
+        //         ))
+                
+        //     }
+           
+        // </ul>      */}
