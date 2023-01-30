@@ -1,11 +1,82 @@
-.NestedTaskList {
-    background-color: palegreen;
+.collapsable-content {
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .collapsable-content.open {
+    padding: 20px;
+    background-color: #e5decc;
+    width: 350px;
+    max-height: 100px;
+    text-align: center;
+  }
+
+  .collapsable-content.open li {
+    text-align: center;
+    color: #ff595a;
+  }
+
+.allMilestones li {
+    margin-left: 40%;
+    margin-top: 20px;
+    
 }
 
+
+
 .tasks{
+    overflow-y: scroll;
     text-align: center;
+    height: 100vh;
+    background-image: linear-gradient(to top left, rgba(255,89,90,0.8), rgba(0,10,48,255));
+
+}
+
+.mileStones h2 {
+    color: white;
+
+    
 }
 
 .mileStones {
-    color: blue;
+    text-align: center;
+    border: 1px solid #e5decc;
+    background-image: linear-gradient(to top right, rgba(255,89,90,0.8), rgba(0,10,48,255));
+    width: 389px;
+}
+
+.mileStones button {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.goalHeading {
+    border-bottom: 1px solid #ff595a;
+    padding: 20px;
+}
+
+.goalHeading button {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
+
+
+
+.goalHeading h1 {
+    color: white;
+
+}
+
+.seeToDos {
+    background-color: #ff595a;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    margin-top: 2px;
 }

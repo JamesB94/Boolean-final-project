@@ -1,22 +1,25 @@
-p {
-    color: brown;
+.theFAQ {
+  margin-top: 20px;
 }
 
-.collapsable-content {
-    transition: max-height 0.2s ease-out;
-    max-height: 0;
-    overflow: hidden;
-  }
-  
-  .collapsable-content.open {
-    background-color: palegreen;
-    max-height: 500px;
-  }
+.faqQuestion{
+  background-color: #ff595a;
+  padding: 5px;
+}
 
-  #root > div > main > div > div > button {
-    cursor: pointer;
-    background-color: purple;
-    display: flex; 
-    justify-content: center;
-    width: 150px
-  }
+.faqQuestion li{
+  float: left;
+  
+}
+
+
+.faqAnswer {
+  width: auto;
+  background-color: #000a30;
+  padding: 15px;
+  color: white;
+}
+
+.faqAnswer li {
+  float: left;
+}

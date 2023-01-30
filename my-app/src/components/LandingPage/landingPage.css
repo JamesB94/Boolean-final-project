@@ -9,9 +9,9 @@
     display: grid;
 
     grid-template-areas: 
-            "a a c c" 
-            "b b c c" 
-            "b b c c";
+    "b b c c" 
+    "b b c c" 
+    "b b c c";
 
     
  grid-template-rows: 50px;
@@ -19,46 +19,46 @@
 
 }
 
-.header {
-grid-area: a;
-background-color: #060724;
-}
-
 .headerDoneNest {
-    color: #eb7f67;
+    color: #ff595a;
     float: left;
     padding-left: 5%;
     cursor: pointer;
 }
 
 .header button {
-        cursor: pointer;
-        margin-top: 5px;
-        margin-right: 2%;
-        margin-bottom: 2%;
-        float: right;
-        -webkit-border-radius: 7;
-        -moz-border-radius: 7;
-        border-radius: 7px;
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 16px;
-        background: #eb7f67;
-        padding: 5px 10px 5px 10px;
-        text-decoration: none;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    float: right;
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 16px;
+    background: #ff595a;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
       
 }
 
 .leftSideLanding { 
     grid-area: b;
-    background-color: #060724;
+    background-color: #000a30;
     color: #edeced;
 }
 
 .leftSideHeadingText {
+    text-align: center;
     margin-top: 15%;
     margin-left: 20%;
     margin-right: 20%;
+}
+
+.leftSideHeadingText h1{
+    color: #ffffff;
 }
 
 .rightSideLanding {
@@ -68,7 +68,7 @@ background-color: #060724;
 .callToActionLeft {
     text-align: center;
     margin-top: 10%;
-    color: #eb7f67;
+    color: #ff595a;
 }
 
 .rightSideLanding img{
@@ -90,7 +90,7 @@ background-color: #060724;
     font-family: Arial;
     color: #ffffff;
     font-size: 25px;
-    background: #eb7f67;
+    background: #ff595a;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
   }

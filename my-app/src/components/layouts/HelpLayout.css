@@ -1,0 +1,23 @@
+.Help-Layout {
+    height: 100vh;
+    background-image: linear-gradient(to top right, rgba(255,89,90,0.8), rgba(0,10,48,255));
+    text-align: center;
+}
+
+.Help-Layout h2 {
+    color: white;
+    text-align: center;
+}
+
+.Help-Layout p {
+    color: white;
+}
+
+.Help-Layout  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    background-color: rgba(255,89,90,0.8);
+}

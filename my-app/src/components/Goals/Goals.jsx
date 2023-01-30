@@ -1,116 +1,93 @@
-import { useLoaderData , Link} from 'react-router-dom';
-import React, { useState , useRef} from 'react';
+import { useLoaderData, Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
 
-import './Goals.css'
-// import React, { useState, useEffect } from 'react';
+import "./Goals.css";
 
 export default function Goals() {
+  const data = useLoaderData();
 
-  const qoutesData =[
-    {id: 1, qoute:"If you don't know where you are going, you will probably end up somewhere else"},
-    {id: 2, qoute: "Shoot for the moon. Even if you miss, you'll land among the stars."}
-  ]
+  const addGoalRef = useRef("null");
 
-const data = useLoaderData()
+  // Modal Box
 
-const addGoalRef = useRef('null')
+  const [isOpen, setIsOpen] = useState(false);
 
-/////////////////////////////////////////////////////////
+  function handleOpen() {
+    setIsOpen(true);
+  }
 
-// Modal Box
+  function handleClose() {
+    setIsOpen(false);
+  }
 
-const [isOpen, setIsOpen] = useState(false);
+  const handleGoalAdded = (event) => {
+    event.preventDefault();
+    const userInput = addGoalRef.current.value;
+    const userTask = userInput;
 
-function handleOpen() {
-  setIsOpen(true);
-}
+    const newGoal = {
+      id: data.length + 1,
+      goalName: userTask,
+      done: false,
+      task: [{ id: 1, task: "First Milestone", done: false, nestedTask: [] }],
+    };
 
-function handleClose() {
-  setIsOpen(false);
-}
+    fetch("http://localhost:8000/Goals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newGoal),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Success: ", data))
+      window.location.reload();
+      handleClose();
+  };
 
-////////////////////////////////////////////////////////
-
-const handleGoalAdded = (event) => {
-  event.preventDefault();
-  const userInput = addGoalRef.current.value;
-  const userTask = userInput
-  
-
-  const newGoal = {"id": data.length +1, "goalName": userTask, "done":false, "task": [{"id":1, "task": "First Milestone", "done": false,"nestedTask": []}]}
-  data.push(newGoal)
-  console.log("here is data", newGoal)
-  handleClose()
-  
-
-}
-
-
-    return ( 
-        <div>
-            <h1>this is a test for Goals page</h1>
-            <div className="addGoal">
-
-              <button onClick={handleOpen}>+</button>
-              {isOpen && (
-                <div className="modal-overlay">
-                  <div className="modal-content">
-                    <div className="modal-inspiration">
-
-                    </div>
-
-                    <form onSubmit={handleGoalAdded}>
-                    <input type="text"  ref={addGoalRef}/>
-                    <button type="submit">Start your Journey</button>
-                    </form>
-                    <button onClick={handleClose}>x</button>
-                  </div>
-                </div>
-              )}
-
+  return (
+    <div className="Goals_Div">
+      <div className="goalsHeader">
+        <h1>Your Goals</h1>
+      </div>
+      <div className="allGoalPlus">
+        <div className="addGoal">
+          <h4>Add a Goal:</h4>
+          <button id="addButton" onClick={handleOpen}>
+            +
+          </button>
+          {isOpen && (
+            <div className="modal-overlay">
+              <div className="modal-content">
+                <div className="modal-inspiration"></div>
+                <button className="closeBtn" onClick={handleClose}>
+                  x
+                </button>
+                <form className="modalInput" onSubmit={handleGoalAdded}>
+                  <input type="text" ref={addGoalRef} />
+                </form>
+              </div>
             </div>
-            {data.map(goal => (
+          )}
+        </div>
+
+        <div className="goalsList">
+          <ul>
+            {data.map((goal) => (
               <Link to={goal.id.toString()} key={goal.id}>
-                <h2>{goal.goalName}</h2>
+                <li>{goal.goalName}</li>
               </Link>
-
             ))}
-       
-
+          </ul>
         </div>
-     );
+      </div>
+    </div>
+  );
 }
- 
 
-
-//Loader
+// Loader
 export const goalLoader = async () => {
-  const res = await fetch('http://localhost:8000/Goals')
+  const res = await fetch("http://localhost:8000/Goals");
 
-  return res.json()
-}
-
-
-
-
-//////////////////////////////////////////////////
-
-    // const [data, setData] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('http://localhost:8000/Goals')
-    //       .then(response => response.json())
-    //       .then(data => setData(data)
-    //         )
-    //   },[]);
-
- {/* {data.map(item => (
-
-        <div className='goalBox' key={item.id}>
-        
-            <p>{item.goalName}</p>
-  
-          
-          
-        </div>
-      ))} */}
+  return res.json();
+};

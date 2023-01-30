@@ -1,29 +1,71 @@
-import React, { useState } from 'react';
-import './Faq.css'
+import React, { useState } from "react";
+import "./Faq.css";
 
 const Faq = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const [isOpen, setIsOpen] = useState(false); 
-
-let car = 'Hello there i am a car'     
-
-
-    return ( 
-
-        <div>
-            <h1>FAQ Here</h1>
-            <button onClick={() => setIsOpen(!isOpen)}>
-            <div className = "buttonStyle"> 
-            <p>Collapsable</p>
-            <p>+</p>
-            </div>
-            </button>
-            <div className={`collapsable-content ${isOpen ? 'open' : ''}`}>
-                {car}
-            </div>
+  return (
+    <div className="theFAQ">
+      <ul>
+        <div className="faqQuestion">
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit, eaque!
+          </li>
         </div>
-        
-     );
-}
- 
+        <div className="faqAnswer">
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
+            neque doloribus nesciunt odit expedita molestias, explicabo dicta
+            nihil esse? Similique.
+          </li>
+        </div>
+        <br></br>
+        <div className="faqQuestion">
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit, eaque!
+          </li>
+        </div>
+        <div className="faqAnswer">
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
+            neque doloribus nesciunt odit expedita molestias, explicabo dicta
+            nihil esse? Similique.
+          </li>
+        </div>
+        <br></br>
+        <div className="faqQuestion">
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit, eaque!
+          </li>
+        </div>
+        <div className="faqAnswer">
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
+            neque doloribus nesciunt odit expedita molestias, explicabo dicta
+            nihil esse? Similique.
+          </li>
+        </div>
+        <br></br>
+        <div className="faqQuestion">
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit, eaque!
+          </li>
+        </div>
+        <div className="faqAnswer">
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
+            neque doloribus nesciunt odit expedita molestias, explicabo dicta
+            nihil esse? Similique.
+          </li>
+        </div>
+        <br></br>
+      </ul>
+    </div>
+  );
+};
+
 export default Faq;

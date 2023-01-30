@@ -1,0 +1,16 @@
+.contactForm h1{
+    color: white;
+}
+
+.formSection {
+    margin-top: 40px;
+    
+}
+
+.formSection input {
+    display: inline;
+    margin: 15px;
+    text-align: center;
+    justify-content: center;
+}
+
